@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '⚙️ Running Maven build...'
-                bat 'mvn clean package -DskipTests'
+                sh 'mvn clean package -DskipTests'
                 echo '✅ Build completed. JAR file should be in target/ directory.'
             }
         }
@@ -29,12 +29,12 @@ pipeline {
             }
         }
 
-       stage('Run JAR') {
-    steps {
-        echo '🚀 Running the built JAR...'
-        bat 'java -jar target/firstdeploy-1.0-SNAPSHOT.jar'
-        echo '✅ JAR execution finished.'
-    }
-}
+        stage('Run JAR') {
+            steps {
+                echo '🚀 Running the built JAR...'
+                sh 'java -jar target/firstdeploy-1.0-SNAPSHOT.jar'
+                echo '✅ JAR execution finished.'
+            }
+        }
     }
 }
