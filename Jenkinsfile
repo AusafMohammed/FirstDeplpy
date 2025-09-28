@@ -29,12 +29,12 @@ pipeline {
             }
         }
 
-        stage('Run JAR') {
-            steps {
-                echo '🚀 Running the built JAR...'
-                bat 'java -jar target/*.jar'
-                echo '✅ JAR execution finished.'
-            }
-        }
+       stage('Run JAR') {
+    steps {
+        echo '🚀 Running the built JAR...'
+        bat 'java -jar target/firstdeploy-1.0-SNAPSHOT.jar'
+        echo '✅ JAR execution finished.'
+    }
+}
     }
 }
